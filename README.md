@@ -38,22 +38,23 @@ blank during aggregation. CPI and FAO columns contain index levels.
 
 ```text
 data/
-├── raw/          Source CSV snapshots used by the original notebook
-└── interim/     Reusable monthly indicators generated from the source CSVs
+├── raw/         Source CSV snapshots
+├── interim/     Reusable monthly indicators generated from the source CSVs
+└── processed/   Datasets prepared for a specific analysis or forecast
 notebooks/       Numbered notebooks for data checks and analysis
 src/food_inflation/
-├── ingestion/
-│   ├── evds.py           Turkish food CPI and daily USD/TRY from EVDS
-│   ├── fao.py            Global food price indices from FAO
-│   ├── csv_files.py      CSV validation and saving
-│   └── pipeline.py       Downloads missing source CSVs
-└── data_preparation/
-    ├── source_tables.py  Parses and validates the source tables
-    ├── monthly_table.py  Aligns the indicators to the CPI calendar
-    └── pipeline.py       Saves the monthly Parquet file
+├── datasets/
+│   ├── food_cpi/            Turkish food CPI series
+│   ├── exchange_rates/      Daily USD/TRY rates and monthly averages
+│   ├── global_food_prices/  FAO food price indices
+│   ├── evds_client.py       Shared authentication and yearly requests
+│   └── csv_snapshots.py     Shared CSV parsing, validation and saving
+├── monthly_dataset/        Aligns all three inputs and writes Parquet
+├── forecasting/            Reserved for forecasting code
+└── cli.py                   Download and preparation commands
 tests/
-├── ingestion/           Download and offline reuse checks
-└── data_preparation/    Monthly table checks
+├── monthly_dataset/     Monthly table checks
+└── test_cli.py           Download and offline reuse checks
 handout/         Course brief and template
 reports/
 ├── proposal/    Written proposal, slides and speaking script
@@ -61,8 +62,8 @@ reports/
 └── final/       December report and final presentation
 ```
 
-Git ignores the data files. `data/processed/` can hold a dataset built for
-a specific analysis or forecast.
+Git ignores the data files and tracks directories once they contain tracked
+files. Create the forecasting and report milestone folders locally as needed.
 
 ## Reports and presentations
 

@@ -12,8 +12,8 @@ dependencies = [
 ]
 
 [project.scripts]
-food-inflation-download = "food_inflation.ingestion.pipeline:main"
-food-inflation-prepare = "food_inflation.data_preparation.pipeline:main"
+food-inflation-download = "food_inflation.cli:download"
+food-inflation-prepare = "food_inflation.cli:prepare"
 
 [dependency-groups]
 dev = [

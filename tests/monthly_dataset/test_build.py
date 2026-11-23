@@ -1,7 +1,7 @@
 import pandas as pd
 from pandas.testing import assert_frame_equal
 
-from food_inflation.data_preparation import monthly_indicators
+from food_inflation.monthly_dataset.build import monthly_indicators
 
 
 def test_monthly_indicators_use_cpi_calendar_and_published_daily_rates():

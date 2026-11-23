@@ -1,9 +1,10 @@
 from io import BytesIO
+from pathlib import Path
 
 import pandas as pd
 import requests
 
-from .csv_files import check_download
+from ..csv_snapshots import check_download, read_indicators
 
 FAO_URL = (
     "https://www.fao.org/media/docs/worldfoodsituationlibraries/wfs-library/"
@@ -21,10 +22,14 @@ FAO_COLUMNS = {
 }
 
 
-def download_food_prices() -> pd.DataFrame:
+def download() -> pd.DataFrame:
     response = requests.get(FAO_URL, timeout=90)
     response.raise_for_status()
     food_prices = pd.read_csv(BytesIO(response.content), skiprows=2, usecols=range(7))
     food_prices = food_prices.dropna(how="all")
     check_download(food_prices, ["Date", *FAO_COLUMNS], FAO_FILE)
     return food_prices
+
+
+def load(raw_dir: Path) -> pd.DataFrame:
+    return read_indicators(raw_dir / FAO_FILE, "Date", "%Y-%m", FAO_COLUMNS)

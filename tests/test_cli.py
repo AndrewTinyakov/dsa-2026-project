@@ -4,7 +4,9 @@ from unittest.mock import Mock
 import pytest
 import requests
 
-from food_inflation.ingestion import download_sources, fao, pipeline
+from food_inflation import cli
+from food_inflation.cli import download_sources
+from food_inflation.datasets.global_food_prices import fao
 
 
 def test_download_reuses_all_three_cached_files(tmp_path, monkeypatch):
@@ -68,7 +70,7 @@ def test_missing_evds_file_uses_project_key_and_downloads_complete_months(tmp_pa
         def today(cls):
             return cls(2006, 2, 12)
 
-    monkeypatch.setattr(pipeline, "date", FixedDate)
+    monkeypatch.setattr(cli, "date", FixedDate)
     responses = []
     for year in (2005, 2006):
         response = Mock()
