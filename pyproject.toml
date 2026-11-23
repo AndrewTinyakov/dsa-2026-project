@@ -1,0 +1,31 @@
+[project]
+name = "food-inflation"
+version = "0.1.0"
+description = "DSA101 project on food inflation in Turkey"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "pandas>=3,<4",
+    "pyarrow>=18,<27",
+    "python-dotenv>=1,<2",
+    "requests>=2,<3",
+]
+
+[project.scripts]
+food-inflation-download = "food_inflation.ingestion.pipeline:main"
+food-inflation-prepare = "food_inflation.data_preparation.pipeline:main"
+
+[dependency-groups]
+dev = [
+    "ipykernel>=6,<8",
+    "jupyterlab>=4,<5",
+    "nbconvert>=7,<8",
+    "pytest>=8,<10",
+]
+
+[build-system]
+requires = ["uv_build>=0.13,<0.14"]
+build-backend = "uv_build"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

@@ -106,8 +106,8 @@ The written brief also requires a separate one-page proposal PDF by 18 October a
 
 ## Source notes
 
-Data sizes, coverage and null counts come from the executed Proposal data check section in [food_inflation.ipynb](../food_inflation.ipynb).
+Data sizes, coverage and null counts come from the executed Proposal data check section in [the data preparation notebook](../../notebooks/01_data_understanding_and_preparation.ipynb).
 
-CPI source and metadata: https://veriportali.tuik.gov.tr/en/press/58289. FAO definition: https://www.fao.org/worldfoodsituation/foodpricesindex/en/. Proposal requirements: handout/DSA101_Project_Proposal_Brief_2026Fall.pdf.
+CPI source and metadata: https://veriportali.tuik.gov.tr/en/press/58289. FAO definition: https://www.fao.org/worldfoodsituation/foodpricesindex/en/. Proposal requirements are in the [course brief](../../handout/DSA101_Project_Proposal_Brief_2026Fall.pdf).
 
 TCMB publication calendar: https://www.tcmb.gov.tr/wps/wcm/connect/EN/TCMB%2BEN/Main%2BMenu/Core%2BFunctions/Exchange%2BRate%2BPolicy/Foreign%2BExchange%2Band%2BBanknotes%2BMarkets/Indicative%2BExchange%2BRates .
