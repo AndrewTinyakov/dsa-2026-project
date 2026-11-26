@@ -5,6 +5,9 @@ Can exchange rates and global food prices help predict monthly food inflation in
 The [data preparation notebook](notebooks/01_data_understanding_and_preparation.ipynb)
 checks coverage and missing values, then aligns Turkish food CPI, daily USD/TRY
 rates and FAO food price indices to one row per month.
+The [exploration and regression notebook](notebooks/02_exploration_and_explanatory_regression.ipynb)
+describes monthly changes through December 2023. It fits explanatory regressions
+on historical months and leaves January 2024 onward for forecasting.
 
 ## Run the project
 
@@ -77,4 +80,5 @@ and any figures for each presentation in its milestone folder.
 ```sh
 uv run pytest
 uv run jupyter nbconvert --to notebook --execute --inplace notebooks/01_data_understanding_and_preparation.ipynb
+uv run jupyter nbconvert --to notebook --execute --inplace notebooks/02_exploration_and_explanatory_regression.ipynb
 ```
