@@ -7,7 +7,10 @@ checks coverage and missing values, then aligns Turkish food CPI, daily USD/TRY
 rates and FAO food price indices to one row per month.
 The [exploration and regression notebook](notebooks/02_exploration_and_explanatory_regression.ipynb)
 describes monthly changes through December 2023. It fits explanatory regressions
-on historical months and leaves January 2024 onward for forecasting.
+on historical months and reserves January 2024 onward for final forecast evaluation.
+The [forecast evaluation notebook](notebooks/03_forecast_evaluation.ipynb)
+runs a walk-forward backtest for 2021–2023. It compares three checkpoint
+methods using revised snapshots and a fixed two-month availability rule.
 
 ## Run the project
 
@@ -75,10 +78,14 @@ The proposal folder has the [written proposal](reports/proposal/food-inflation-p
 [speaking script](reports/proposal/proposal-script.md). Keep the report, slides,
 and any figures for each presentation in its milestone folder.
 
+The [checkpoint presentation materials](reports/progress/checkpoint-presentation-materials.md)
+collect the findings, slide figures, and proposed next experiments.
+
 ## Checks
 
 ```sh
 uv run pytest
 uv run jupyter nbconvert --to notebook --execute --inplace notebooks/01_data_understanding_and_preparation.ipynb
 uv run jupyter nbconvert --to notebook --execute --inplace notebooks/02_exploration_and_explanatory_regression.ipynb
+uv run jupyter nbconvert --to notebook --execute --inplace notebooks/03_forecast_evaluation.ipynb
 ```
